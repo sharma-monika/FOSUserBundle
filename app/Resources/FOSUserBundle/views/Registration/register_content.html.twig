@@ -1,0 +1,8 @@
+<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+    <div class="container">
+        <div align ="center" class = "card-panel blue lighten-5">
+            {{ form_widget(form) }}
+            <input class="waves-effect waves-light btn blue light-2" type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" />
+        </div>
+    </div>
+</form>
