@@ -41,12 +41,18 @@ class User extends BaseUser
      */
     protected $lastName;
 
+    protected $name;
+
     public function getFirstName() {
         return $this->firstName;
     }
 
     public function getLastName() {
         return $this->lastName;
+    }
+
+    public function getname() {
+        return $this->name;
     }
 
     public function setFirstName($firstName)
@@ -61,6 +67,12 @@ class User extends BaseUser
         return $this;
     }
 
+    public function setname($setname)
+    {
+        $this->name = $setname;
+        return $this;
+    }
+
     /**
      * @param string $facebookId
      * @return User
@@ -68,7 +80,8 @@ class User extends BaseUser
     public function setFacebookId($facebookId)
     {
         $this->facebookId = $facebookId;
-       
+        // HOT FIX :: https://github.com/hwi/HWIOAuthBundle/issues/1057
+        $this->username = $facebookId;
         return $this;
     }
 
@@ -100,11 +113,4 @@ class User extends BaseUser
     }
     
 
-    // HOT FIX :: https://github.com/hwi/HWIOAuthBundle/issues/1057
-    public function setUsername($firstName)
-    {
-        $this->username = $firstName;
-       
-        return $this;
-    }
 }

@@ -19,8 +19,6 @@ class OAuthUserProvider extends BaseClass
     public function loadUserByOAuthUserResponse(UserResponseInterface $response)
     {
         $socialID = $response->getUsername();
-        // $user = $this->userManager->findUserBy(array('facebookId' => $socialID));
-        // $user = $response->getRealName();
         $user = $this->userManager->findUserBy(array($this->getProperty($response)=>$socialID));
         $email = $response->getEmail();
         //check if the user already has the corresponding social account

@@ -10,20 +10,26 @@
                 {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
             </a>
         {% else %}
-            <div class="card-panel teal lighten-2">
-                <span class="black-text.text-darken-2.strong">Welcome User!</span>
-                <div>
-                    <a class="waves-effect waves-light btn" href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-                </div>
-                &nbsp;
-                <div>
-                    <a class="waves-effect waves-light btn" href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
-                </div>
-                &nbsp;
-                <div>
-                    <a class="waves-effect waves-light btn" href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}">
-                    <span>Login with Facebook</span>
-                    </a>
+            <div align ="center" class = "card-panel blue lighten-5">
+                <h3> <span class="black-text.text-darken-2.strong">Welcome User!</span></h3>
+                <div class="row">
+                    <div class ="col s12">&nbsp;</div>
+                    <div class ="col s3">&nbsp;</div>
+                    <div class ="col s3">
+                        <a class="waves-effect waves-light btn blue light-2" href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                    </div>
+                    <div class ="col s3">
+                        <a class="waves-effect waves-light btn blue light-2" href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+                    </div>
+                    <div class ="col s12">&nbsp;</div>
+                    <div class ="col s12">
+                        <h6> <span class="black-text.text-darken-2.strong">Or Login with Facebook</span></h6>
+                    </div>
+                    <div class ="col s12">
+                        <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}">
+                            <i class="mdi mdi-facebook-box mdi-48px"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         {% endif %}
