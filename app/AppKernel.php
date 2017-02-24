@@ -5,6 +5,14 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 
 class AppKernel extends Kernel
 {
+    // Append this init function below
+
+    public function __construct($environment, $debug)
+    {
+        date_default_timezone_set( 'Asia/Kolkata' );
+        parent::__construct($environment, $debug);
+    }
+
     public function registerBundles()
     {
         $bundles = array(
@@ -18,6 +26,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             new AppBundle\AppBundle(),
+            new Crawling\FtestingBundle\CrawlingFtestingBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

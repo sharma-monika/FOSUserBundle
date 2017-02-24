@@ -1,3 +1,7 @@
+crawling_ftesting:
+    resource: "@CrawlingFtestingBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
